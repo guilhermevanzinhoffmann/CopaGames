@@ -1,0 +1,50 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body, input[type="text"], button {
+  color: #333;
+  font-family: Cambria, Georgia, serif;
+}
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+init {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+card-title{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+basic{
+  text-align: center;
+  font-size: smaller;
+}
+
+selection{
+  margin-left: 10px;
+  margin-right: 90%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 10% 80%;
+}
+
