@@ -14,13 +14,25 @@ export class AppComponent implements OnInit{
   games : Array<Game> = new Array<Game>();
 
   ngOnInit(): void {
+    this.games.push(new Game('Dota 2', 10, "Nintendo Switch"));
+    this.games.push(new Game('CS:GO', 20, "PC"));
+    this.games.push(new Game('League of Legends', 30, "PC"));
+    this.games.push(new Game('Overwatch', 40, "Nintendo Switch"));
+    this.games.push(new Game('Dota 2', 10, "PC"));
+    this.games.push(new Game('CS:GO', 20, "PC"));
+    this.games.push(new Game('League of Legends', 30, "PC"));
+    this.games.push(new Game('Overwatch', 40, "PC"));
+    this.games.push(new Game('Dota 2', 10, "PC"));
+    this.games.push(new Game('CS:GO', 20, "PC"));
+    this.games.push(new Game('League of Legends', 30, "PC"));
+    this.games.push(new Game('Overwatch', 40, "Nintendo Switch"));
     this.games.push(new Game('Dota 2', 10, "PC"));
     this.games.push(new Game('CS:GO', 20, "PC"));
     this.games.push(new Game('League of Legends', 30, "PC"));
     this.games.push(new Game('Overwatch', 40, "PC"));
   }
 
-  updateChackedState(){
+  updateCheckedState(){
     this.totalSelected = 0;
     this.games.forEach(game => {
       if(game.selected){
