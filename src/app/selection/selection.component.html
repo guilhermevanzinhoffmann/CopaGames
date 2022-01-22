@@ -20,19 +20,22 @@
     </div>
   </div>
   <div>
-    <mat-grid-list cols="4" rowHeight="120px">
+    <mat-grid-list cols="4" rowHeight="300px">
       <mat-grid-tile *ngFor="let game of games">
-        <mat-card style="width: 220px; height: 80px;">
+        <mat-card style="width: 300px; height: 230px;">
           <mat-checkbox
             [disabled]="!game.selected && totalSelected > 7"
             [(ngModel)]="game.selected"
             [checked]="game.selected"
             (ngModelChange)="updateCheckedState()">
-            <mat-card-title style="padding-top: 13px;">{{game.titulo}}</mat-card-title>
+            <mat-card-title class="cardStyle" style="padding-top: 13px; font-size: small;">{{game.titulo.split("(")[0]}}</mat-card-title>
           </mat-checkbox>
           <mat-card-content style="padding-top: 25px;">
-            <p style="text-align: right;">{{game.console}}</p>
+            <img class="imageSize" mat-card-image src="{{game.urlImagem}}">
           </mat-card-content>
+          <mat-card-footer>
+            <p style="text-align: right; padding-right: 15px;">{{game.titulo.split("(")[1].split(")")[0]}}</p>
+          </mat-card-footer>
         </mat-card>
       </mat-grid-tile>
     </mat-grid-list>
