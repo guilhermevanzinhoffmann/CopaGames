@@ -12,12 +12,25 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 12% 84%;
+  grid-template-columns: 100%;
 }
 
-.btnAgn{
-  display: inline-block;
-  background-color: blue;
+.btnGen{
+  float: right;
+  background-color: cyan;
   border-style: groove;
   font-family: 'Times New Roman', Times, serif;
+}
+
+.cardStyle{
+  max-width: 230px;
+  max-height: 80px;
+}
+
+.imageSize{
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
