@@ -11,7 +11,6 @@ import { Game } from '../models/game';
 export class SelectionComponent implements OnInit {
 
   constructor(private gameService: GameService, private router: Router) { };
-  gameYear = 0;
   totalSelected = 0;
   title = 'fase de seleção';
   games : Array<Game> = new Array<Game>();
@@ -52,13 +51,5 @@ export class SelectionComponent implements OnInit {
         winnerGames = games;
         this.router.navigateByUrl('/result', {state: {games: winnerGames}});
       });
-  }
-
-  hideYear(game: Game): boolean{
-    if(this.gameYear != game.ano){
-      this.gameYear = game.ano;
-      return false;
-    }
-    return true;
   }
 }
