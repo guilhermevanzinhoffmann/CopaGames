@@ -10,8 +10,8 @@ import { Game } from '../models/game';
 })
 export class SelectionComponent implements OnInit {
 
-  constructor(private gameService: GameService, private router: Router) { }
-
+  constructor(private gameService: GameService, private router: Router) { };
+  gameYear = 0;
   totalSelected = 0;
   title = 'fase de seleção';
   games : Array<Game> = new Array<Game>();
@@ -22,7 +22,12 @@ export class SelectionComponent implements OnInit {
 
   getGames(): void{
     this.gameService.getGames()
-      .subscribe(games => this.games = games);
+      .subscribe(games =>
+        this.games = games,
+        ()=> null,
+        ()=>{
+          this.games = this.games.sort((a, b) => a.ano < b.ano ? -1 : 1);
+        });
   }
 
   updateCheckedState(): void{
@@ -44,9 +49,16 @@ export class SelectionComponent implements OnInit {
     let winnerGames = Array<Game>();
     this.gameService.getResult(selectedGames)
       .subscribe(games => {
-        console.log(games);
         winnerGames = games;
         this.router.navigateByUrl('/result', {state: {games: winnerGames}});
       });
+  }
+
+  hideYear(game: Game): boolean{
+    if(this.gameYear != game.ano){
+      this.gameYear = game.ano;
+      return false;
+    }
+    return true;
   }
 }

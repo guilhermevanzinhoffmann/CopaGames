@@ -62,6 +62,15 @@ describe('ResultComponent', () => {
     expect(title.textContent).toEqual('game 1 ');
   });
 
+  it('deve aparecer ano correto', () => {
+    const games = [new Game('1', 'game 1 (TST)', 1, 1, 'url1'), new Game('2', 'game 2 (NTST)', 2, 2, 'url2')];
+    component.winnerGames = games;
+    fixture.detectChanges();
+    const title = fixture.nativeElement.querySelector('#year');
+    expect(title.textContent[0]).toEqual(games[0].ano.toString());
+  });
+
+
   it('deve aparecer posicao correta do game', () => {
     const games = [new Game('1', 'game 1 (TST)', 1, 1, 'url1'), new Game('2', 'game 2 (NTST)', 2, 2, 'url2')];
     component.winnerGames = games;

@@ -68,6 +68,14 @@ describe('SelectionComponent', () => {
     expect(title.textContent).toEqual('TST');
   });
 
+  it('deve aparecer ano correto', () => {
+    const games = [new Game('1', 'game 1 (TST)', 1, 1, 'url1'), new Game('2', 'game 2 (NTST)', 2, 2, 'url2')];
+    component.games = games;
+    fixture.detectChanges();
+    const title = fixture.nativeElement.querySelector('#year');
+    expect(title.textContent[0]).toEqual(games[0].ano.toString());
+  });
+
   it('deve carregar url correta', () => {
     const games = [new Game('1', 'game 1 (TST)', 1, 1, 'url1'), new Game('2', 'game 2 (NTST)', 2, 2, 'url2')];
     component.games = games;
@@ -102,7 +110,7 @@ describe('SelectionComponent', () => {
     const games = [new Game('1', 'game 1 (TST)', 1, 1, 'url1')];
     component.games = games;
     fixture.detectChanges();
-    const checkbox = fixture.nativeElement.querySelector('#checkbox-input');
+    const checkbox = fixture.nativeElement.querySelector('#checkbox0-input');
     expect(!checkbox.disabled).toBeTrue();
   });
 
@@ -111,7 +119,7 @@ describe('SelectionComponent', () => {
     component.games = games;
     component.totalSelected = 8;
     fixture.detectChanges();
-    const checkbox = fixture.nativeElement.querySelector('#checkbox-input');
+    const checkbox = fixture.nativeElement.querySelector('#checkbox0-input');
     expect(checkbox.disabled).toBeTrue();
   });
 
@@ -123,7 +131,7 @@ describe('SelectionComponent', () => {
     checkboxInput.click();
     component.totalSelected = 8;
     fixture.detectChanges();
-    const checkbox = fixture.nativeElement.querySelector('#checkbox-input');
+    const checkbox = fixture.nativeElement.querySelector('#checkbox0-input');
     expect(!checkbox.disabled).toBeTrue();
   });
 

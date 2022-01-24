@@ -25,7 +25,9 @@
             <img id="urlImage" class="imageSize" mat-card-image src="{{game.urlImagem}}">
           </mat-card-content>
           <mat-card-footer>
-            <p id="console" style="text-align: right; padding-right: 15px;">{{game.titulo.split("(")[1].split(")")[0]}}</p>
+            <div style="display: inline;">
+              <p id="year" style="text-align: left; padding-left: 15px;">{{game.ano}}<span id="console" style="text-align: right; float: right; padding-right: 15px;">{{game.titulo.split("(")[1].split(")")[0]}}</span></p>
+            </div>
           </mat-card-footer>
         </mat-card>
       </mat-grid-tile>
