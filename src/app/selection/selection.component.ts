@@ -35,9 +35,18 @@ export class SelectionComponent implements OnInit {
   }
 
   goToResult(): void{
-    let winnerGames = new Array<Game>();
-    winnerGames.push(this.games[0]);
-    winnerGames.push(this.games[1]);
-    this.router.navigateByUrl('/result', {state: {games: winnerGames}});
+    let selectedGames = new Array<Game>();
+    this.games.forEach(game => {
+      if(game.selected){
+        selectedGames.push(game);
+      }
+    })
+    let winnerGames = Array<Game>();
+    this.gameService.getResult(selectedGames)
+      .subscribe(games => {
+        console.log(games);
+        winnerGames = games;
+        this.router.navigateByUrl('/result', {state: {games: winnerGames}});
+      });
   }
 }
